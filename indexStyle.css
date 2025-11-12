@@ -45,3 +45,24 @@ button:hover {
 .hidden {
   display: none;
 }
+
+@media (max-width: 600px) {
+  .container {
+    width: 90%;
+    padding: 20px 25px;
+    box-sizing: border-box;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  #timer {
+    font-size: 1.2rem;
+  }
+
+  button {
+    font-size: 1rem;
+    padding: 8px 16px;
+  }
+}
