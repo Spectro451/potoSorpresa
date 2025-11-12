@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Night Witch🌙✨</title>
+  <link rel="stylesheet" href="indexStyle.css">
+</head>
+<body>
+  <div class="container">
+    <h1 id="titulo"></h1>
+    <p id="timer"></p>
+    <button id="boton" class="hidden" onclick="acceder()">Acceder</button>
+  </div>
+
+  <script>
+    const fechaObjetivo = new Date("2025-11-12T00:00:00");
+    const titulo = document.getElementById("titulo");
+    const timer = document.getElementById("timer");
+    const boton = document.getElementById("boton");
+
+    function actualizarContador() {
+      const ahora = new Date();
+      const diferencia = fechaObjetivo - ahora;
+
+      if (diferencia <= 0) {
+        titulo.textContent = "Ya es el gran día!";
+        timer.textContent = "";
+        boton.classList.remove("hidden");
+      } else {
+        const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+        const horas = Math.floor((diferencia / (1000 * 60 * 60)) % 24);
+        const minutos = Math.floor((diferencia / (1000 * 60)) % 60);
+        const segundos = Math.floor((diferencia / 1000) % 60);
+
+        titulo.textContent = "Esta página se desbloquea en:";
+        timer.textContent = `${dias}d ${horas}h ${minutos}m ${segundos}s`;
+      }
+    }
+
+    function acceder() {
+      window.location.href = "sorpresa.html";
+    }
+    setInterval(actualizarContador, 1000);
+    actualizarContador();
+  </script>
+</body>
+</html>
